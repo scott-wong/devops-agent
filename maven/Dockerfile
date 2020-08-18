@@ -1,7 +1,9 @@
 FROM kubespheredev/builder-base:latest
 
 # java
-RUN yum install -y java-11-openjdk-devel
+RUN yum remove java-1.8.0-openjdk && \
+    yum remove java-1.8.0-openjdk-headless && \
+    yum install -y java-11-openjdk-devel
 
 # maven
 ENV MAVEN_VERSION 3.6.3
