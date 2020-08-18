@@ -1,8 +1,8 @@
 FROM kubespheredev/builder-base:latest
 
 # java
-RUN yum remove java-1.8.0-openjdk && \
-    yum remove java-1.8.0-openjdk-headless && \
+RUN yum remove -y java-1.8.0-openjdk && \
+    yum remove -y java-1.8.0-openjdk-headless && \
     yum install -y java-11-openjdk-devel
 
 # maven
