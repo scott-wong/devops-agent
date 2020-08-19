@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file satc/Dockerfile --tag scottwong/maven:3.6-jdk-11
+      run: cd satc && docker build . --file Dockerfile --tag scottwong/maven:3.6-jdk-11
