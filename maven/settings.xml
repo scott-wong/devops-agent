@@ -73,11 +73,6 @@ under the License.
    |-->
   <servers>
     <server>
-      <id>public</id>
-      <username>admin</username>
-      <password>ekingacdm</password>
-    </server>
-    <server>
       <id>satc-nexus</id>
       <username>admin</username>
       <password>ekingacdm</password>
