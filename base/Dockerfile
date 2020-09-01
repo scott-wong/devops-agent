@@ -23,7 +23,7 @@ RUN yum install -y epel-release && \
 
 ENV GIT_VERSION 2.28.0
 RUN wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-${GIT_VERSION}.tar.gz && \
-    tar zxvf git-${GIT_VERSION}.tar.gz && \
+    tar zxf git-${GIT_VERSION}.tar.gz && \
     cd git-${GIT_VERSION} && \
     make configure && \
     ./configure prefix=/usr/local/git/ && \

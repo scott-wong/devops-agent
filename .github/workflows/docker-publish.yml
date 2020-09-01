@@ -25,14 +25,14 @@ jobs:
       #     path: maven
       #     tag_with_ref: true
       #     tag_with_sha: true
-      - name: Push builder-base to Docker Hub
-        uses: docker/build-push-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: ${{ secrets.DOCKER_USERNAME }}/builder-base
-          path: base
-          tag_with_ref: true
+      # - name: Push builder-base to Docker Hub
+      #   uses: docker/build-push-action@v1
+      #   with:
+      #     username: ${{ secrets.DOCKER_USERNAME }}
+      #     password: ${{ secrets.DOCKER_PASSWORD }}
+      #     repository: ${{ secrets.DOCKER_USERNAME }}/builder-base
+      #     path: base
+      #     tag_with_ref: true
       - name: Push builder-maven to Docker Hub
         uses: docker/build-push-action@v1
         with:
