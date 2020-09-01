@@ -1,4 +1,4 @@
-FROM scott/builder-base:latest
+FROM scottwong/builder-base:latest
 
 # java
 RUN yum install -y java-11-openjdk-devel
