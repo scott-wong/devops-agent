@@ -18,22 +18,21 @@ RUN yum install -y epel-release && \
   perl-devel \
   zlib-devel \
   python-pip \
-  java-1.8.0-openjdk && \
+  java-11-openjdk && \
   yum -y clean all --enablerepo='*'
 
-RUN wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.9.5.tar.gz && \
-    tar zxvf git-2.9.5.tar.gz && \
-    cd git-2.9.5 && \
+ENV GIT_VERSION 2.28.0
+RUN wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-${GIT_VERSION}.tar.gz && \
+    tar zxvf git-${GIT_VERSION}.tar.gz && \
+    cd git-${GIT_VERSION} && \
     make configure && \
     ./configure prefix=/usr/local/git/ && \
     make && \
     make install && \
     mv /usr/local/git/bin/git /usr/bin/ && \
     cd ..&& \
-    rm -rf git-2.9.5.tar.gz git-2.9.5 && \
+    rm -rf git-${GIT_VERSION}.tar.gz git-${GIT_VERSION} && \
     git version
-
-
 
 # Set the locale(en_US.UTF-8)
 ENV LANG en_US.UTF-8
@@ -43,7 +42,7 @@ ENV LC_ALL en_US.UTF-8
 # USER jenkins
 WORKDIR /home/jenkins
 
-ENV SONAR_SCANNER_VERSION 3.3.0.1492
+ENV SONAR_SCANNER_VERSION 4.4.0.2170
 
 RUN curl -o sonar_scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip && \
     unzip sonar_scanner.zip && rm sonar_scanner.zip \
@@ -57,5 +56,3 @@ COPY ./ ./
 RUN ./hack/install_utils.sh && rm -rf ./*
 
 CMD ["docker","version"]
-
-
