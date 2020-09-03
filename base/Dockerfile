@@ -54,5 +54,5 @@ ENV PATH $PATH:/usr/bin/sonar-scanner-$SONAR_SCANNER_VERSION-linux/bin
 
 COPY ./ ./
 RUN ./hack/install_utils.sh && rm -rf ./*
-
+RUN helm version
 CMD ["docker","version"]
