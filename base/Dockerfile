@@ -14,6 +14,7 @@ RUN yum install -y epel-release && \
   autoconf \
   expat-devel \
   gettext-devel \
+  openssl \
   openssl-devel \
   perl-devel \
   zlib-devel \
@@ -54,5 +55,4 @@ ENV PATH $PATH:/usr/bin/sonar-scanner-$SONAR_SCANNER_VERSION-linux/bin
 
 COPY ./ ./
 RUN ./hack/install_utils.sh && rm -rf ./*
-RUN helm version
 CMD ["docker","version"]
